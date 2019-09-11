@@ -16,11 +16,11 @@
 <table class="tab">
 
     <thead>
-    <td></td>
+    <td class="decoration"></td>
 
     <?php for ($i = 1; $i <= 10; $i++): ?>
 
-        <td class="koeficijent"><?= $i ?></td>
+        <td class="decoration"><?= $i ?></td>
 
     <?php endfor ?>
 
@@ -30,7 +30,7 @@
 
     for ($i = 1; $i <= 10; $i++) {
 
-        echo "<tr><td class='koeficijent'>" . $i . "</td>";
+        echo "<tr><td class='decoration'>" . $i . "</td>";
 
         for ($j = 1; $j <= 10; $j++) {
 
@@ -65,10 +65,10 @@
 <script>
 
     function calculate(x, y) {
-        console.log(x, y);
+        
         let field = '#field_' + x + '_' + y;
 
-        // ... ocisti polje rezultata ....
+        // Cleaning result field
         $('#result_nr').text("")
 
         $.ajax({
@@ -78,12 +78,11 @@
             dataType: 'json',
             success: function (data) {
 
-                // ... upisi polje rezultata .
+                // Printing result field
                 $('.hovering').removeClass('clicked');
                 $(field).addClass('clicked');
                 $('#result_nr').text(data);
 
-                console.log(data);
             }
         });
     }
